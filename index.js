@@ -35,9 +35,12 @@ const init = () => {
     inquirer
     .prompt(questions)
     .then(function (answers) {
+        if(generateLogo(answers) != null) {
             responseHandler("logo.svg", generateLogo(answers));
+        } else {
+            console.log("Please provide correct values for your input!");
         }
-    )
+    })
 }
 
 init();
